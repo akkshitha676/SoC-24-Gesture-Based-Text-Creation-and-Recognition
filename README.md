@@ -6,9 +6,11 @@ A computer vision project developed during **Summer of Code (SoC) 2024** that en
 
 ## Overview
 
-This project explores real-time hand gesture recognition using **MediaPipe**, **OpenCV**, and **TensorFlow**. By tracking hand landmarks through a webcam, users can interact with their computer without traditional input devices.
+This project explores real-time hand gesture recognition using **MediaPipe**, **OpenCV**, and **TensorFlow**. By tracking hand landmarks through a webcam, users can interact with their computer without relying on traditional input devices.
 
-The repository also includes assignments completed during the Summer of Code program, covering machine learning and deep learning fundamentals.
+The primary application is a Virtual Notepad that allows users to write in the air, erase drawings, and recognize handwritten digits using a Convolutional Neural Network (CNN) trained on the MNIST dataset. Additional applications demonstrate gesture-based system controls such as brightness adjustment, volume control, drag-and-drop interactions, and pause detection.
+
+The repository also contains assignments completed during the Summer of Code program, covering machine learning and deep learning concepts.
 
 ---
 
@@ -33,7 +35,7 @@ The repository also includes assignments completed during the Summer of Code pro
 
 ### Gesture-based Drag and Drop
 
-- Move an image on the screen using hand gestures
+- Move images on the screen using hand gestures
 
 ### Pause Detection
 
@@ -58,6 +60,20 @@ The repository also includes assignments completed during the Summer of Code pro
 
 ---
 
+## Requirements
+
+- Python 3.10 or later
+- Webcam
+- Windows Operating System (required for brightness and volume control features)
+
+Install all required dependencies using:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
 ## Repository Structure
 
 ```text
@@ -75,7 +91,8 @@ The repository also includes assignments completed during the Summer of Code pro
 ├── MnistModel.ipynb
 ├── Pause.py
 ├── VirtualNotepad.py
-├── cnnmodel/
+├── requirements.txt
+├── models/
 └── headerImages/
 ```
 
@@ -113,7 +130,7 @@ Clone the repository.
 git clone https://github.com/akkshitha676/SoC-24-Gesture-Based-Text-Creation-and-Recognition.git
 ```
 
-Move into the project directory.
+Navigate to the project directory.
 
 ```bash
 cd SoC-24-Gesture-Based-Text-Creation-and-Recognition
@@ -122,7 +139,7 @@ cd SoC-24-Gesture-Based-Text-Creation-and-Recognition
 Install the required dependencies.
 
 ```bash
-pip install opencv-python mediapipe tensorflow numpy pycaw comtypes wmi
+pip install -r requirements.txt
 ```
 
 ---
@@ -131,7 +148,7 @@ pip install opencv-python mediapipe tensorflow numpy pycaw comtypes wmi
 
 ### Virtual Notepad
 
-1. Run the application.
+1. Launch the application.
 2. Allow access to your webcam.
 3. Position your hand in front of the camera.
 4. Use your index finger to draw on the virtual canvas.
@@ -152,15 +169,15 @@ pip install opencv-python mediapipe tensorflow numpy pycaw comtypes wmi
 2. Adjust the distance between your thumb and index finger.
 3. The system volume changes according to the detected finger distance.
 
-### Drag and Drop
+### Gesture-based Drag and Drop
 
 1. Launch the drag-and-drop application.
 2. Select the object using the predefined gesture.
-3. Move your hand to reposition the object on the screen.
+3. Move your hand to reposition the object.
 
 ### Pause Detection
 
-1. Run the pause detection application.
+1. Launch the pause detection application.
 2. Show four or more fingers to trigger the pause action.
 
 ---
@@ -173,13 +190,13 @@ Launch the Virtual Notepad.
 python VirtualNotepad.py
 ```
 
-Run the Drag and Drop application.
+Launch the Drag and Drop application.
 
 ```bash
 python DragAndDrop.py
 ```
 
-Run Pause Detection.
+Launch the Pause Detection application.
 
 ```bash
 python Pause.py
@@ -197,14 +214,14 @@ python Pause.py
 | Pinch Gesture | Brightness Control |
 | Finger Distance | Volume Control |
 | Grab Gesture | Drag and Drop |
-| Four Fingers | Pause Screen |
+| Four Fingers | Pause Application |
 | Predict Button | Recognize Handwritten Digit |
 
 ---
 
 ## Machine Learning
 
-The handwritten digit recognition module uses a Convolutional Neural Network trained on the **MNIST** handwritten digit dataset.
+The handwritten digit recognition module uses a Convolutional Neural Network (CNN) trained on the **MNIST** handwritten digit dataset.
 
 Prediction pipeline:
 
@@ -212,8 +229,9 @@ Prediction pipeline:
 2. Convert the image to grayscale.
 3. Resize the image to **28 × 28** pixels.
 4. Normalize the pixel values.
-5. Pass the processed image through the trained CNN.
-6. Display the predicted digit.
+5. Load the trained CNN model from the `models/` directory.
+6. Predict the handwritten digit.
+7. Display the predicted result on the application interface.
 
 ---
 
@@ -252,8 +270,9 @@ This repository also contains assignments completed during the Summer of Code pr
 - Shape recognition
 - Custom gesture mapping
 - Multi-user support
+- Linux and macOS support
 - Cloud deployment
-- Cross-platform compatibility
+- Performance optimization for lower-end devices
 
 ---
 
